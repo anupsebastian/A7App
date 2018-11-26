@@ -1,0 +1,13 @@
+.item {
+    padding: 0.5em;
+    background-color: orange;
+    font-size: 1.2em;
+    margin: 0.25em;
+    box-shadow: 3px 3px 1px rgba(30,30,30,0.2);
+}
+
+.checkedOff {
+    background-color: #888;
+    text-decoration: line-through;
+    text-decoration-style: double;
+}
