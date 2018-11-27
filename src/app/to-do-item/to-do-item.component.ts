@@ -9,12 +9,11 @@ import { Item } from "../item.model";
 export class ToDoItemComponent implements OnInit {
   constructor() {}
   @Input() item;
-  @Output() completedItem = new EventEmitter<object>();
+  // @Output() completedItem = new EventEmitter<object>();
   ngOnInit() {}
 
-  onClick(event: Event) {
-    console.log(" to Do Item compenent onClick functions");
-    this.item.completed = !this.item.completed;
-    this.completedItem.emit(this.item);
+  onClick() {
+    this.item.isCompleted = !this.item.isCompleted;
+    // this.completedItem.emit(this.item);
   }
 }

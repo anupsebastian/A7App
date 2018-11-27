@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges,  SimpleChange} from "@angular/core";
+import { Component, OnInit, Input, OnChanges, SimpleChange, DoCheck } from "@angular/core";
 import {Item} from '../item.model';
 
 @Component({
@@ -6,9 +6,10 @@ import {Item} from '../item.model';
   templateUrl: "./add-item.component.html",
   styleUrls: ["./add-item.component.css"]
 })
-export class AddItemComponent implements OnInit, OnChanges {
+export class AddItemComponent implements OnInit, DoCheck, OnChanges {
   taskName = "drink";
   itemCount: number = 0;
+  private itemsCount;
   constructor() {}
   @Input() toDoArray;
   @Input() remainingItems;
@@ -17,8 +18,15 @@ export class AddItemComponent implements OnInit, OnChanges {
 
   }
 
+  ngDoCheck() {
+    this.itemsCount = this.toDoArray.filter((toDo) => {
+      console.log(toDo.isCompleted);
+      return true ? toDo.isCompleted === false: false;
+    });
+    console.log(this.itemsCount);
+  }
+
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-    console.log(this.remainingItems);
   }
 
 

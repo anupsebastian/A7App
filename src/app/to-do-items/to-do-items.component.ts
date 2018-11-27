@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, DoCheck } from '@angular/core';
 import {Item} from '../item.model';
 
 @Component({
@@ -6,17 +6,23 @@ import {Item} from '../item.model';
   templateUrl: './to-do-items.component.html',
   styleUrls: ['./to-do-items.component.css']
 })
-export class ToDoItemsComponent implements OnInit {
+export class ToDoItemsComponent implements OnInit, DoCheck {
 
   constructor() { }
-  @Input() toDoArray:Item[];
+  @Input() toDoArray;
   ngOnInit() {
   
   }
-  handleComplete (event) {
-    let index = this.toDoArray.findIndex(a => a.id === event.id);
-    console.log(index);
-    this.toDoArray[index] = event;    
+
+  ngDoCheck() {
+    console.log(this.toDoArray);
   }
+
+  
+  // handleComplete (event) {
+  //   let index = this.toDoArray.findIndex(a => a.id === event.id);
+  //   console.log(index);
+  //   this.toDoArray[index] = event;    
+  // }
 
 }
