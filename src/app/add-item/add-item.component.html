@@ -1,3 +1,14 @@
-<input type="text" [(ngModel)]="serverName"/>
 
-<button (click)="test($event)">add Item</button>
+  <!-- <input mat-input type="text" [(ngModel)]="taskName" /> -->
+  <div>
+    Remaining Items : {{toDoArray.length ||0}}
+  </div>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Item to Do" [(ngModel)]="taskName" name ="randomName">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="addItem($event)">
+        add Item
+      </button>
+  </form>

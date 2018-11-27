@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
+import { Item } from "../item.model";
 
 @Component({
   selector: "app-to-do-item",
@@ -12,8 +13,8 @@ export class ToDoItemComponent implements OnInit {
   ngOnInit() {}
 
   onClick(event: Event) {
-    console.log(" to Do Item compenent onClick functions")
-    let newValue = {name: this.item.name, completed: !this.item.completed};
-    this.completedItem.emit(newValue);
+    console.log(" to Do Item compenent onClick functions");
+    this.item.completed = !this.item.completed;
+    this.completedItem.emit(this.item);
   }
 }

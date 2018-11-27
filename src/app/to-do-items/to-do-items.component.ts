@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Item} from '../item.model';
 
 @Component({
   selector: 'app-to-do-names',
@@ -8,16 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ToDoItemsComponent implements OnInit {
 
   constructor() { }
-  @Input() toDoArray;
+  @Input() toDoArray:Item[];
   ngOnInit() {
   
   }
   handleComplete (event) {
-      console.log(event);
-    let index = this.toDoArray.findIndex(a => a.name == event.name);
-    this.toDoArray[index] = event;
-    console.table(this.toDoArray);
-    
+    let index = this.toDoArray.findIndex(a => a.id === event.id);
+    console.log(index);
+    this.toDoArray[index] = event;    
   }
 
 }

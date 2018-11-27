@@ -1,22 +1,31 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges,  SimpleChange} from "@angular/core";
+import {Item} from '../item.model';
 
 @Component({
-  selector: 'app-add-item',
-  templateUrl: './add-item.component.html',
-  styleUrls: ['./add-item.component.css']
+  selector: "app-add-item",
+  templateUrl: "./add-item.component.html",
+  styleUrls: ["./add-item.component.css"]
 })
-
-export class AddItemComponent implements OnInit {
-
-  serverName ='test';      
-  constructor() { }
+export class AddItemComponent implements OnInit, OnChanges {
+  taskName = "drink";
+  itemCount: number = 0;
+  constructor() {}
   @Input() toDoArray;
+  @Input() remainingItems;
   ngOnInit() {
+
+
   }
-  
-  test() {
-      let newItem ={name:this.serverName, completed: false}
+
+  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
+    console.log(this.remainingItems);
+  }
+
+
+  addItem() {
+    this.itemCount += 1;
+    let newItem = new Item(this.itemCount, this.taskName, false);
     this.toDoArray.push(newItem);
-      console.log(this.toDoArray);
+    console.log(this.toDoArray);
   }
 }
