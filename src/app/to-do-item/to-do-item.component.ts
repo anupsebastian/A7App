@@ -13,8 +13,7 @@ export class ToDoItemComponent implements OnInit {
   ngOnInit() {}
 
   onClick(event: Event) {
-    console.log(" to Do Item compenent onClick functions");
-    this.item.isCompleted = !this.item.isCompleted;
+ this.item.isCompleted = !this.item.isCompleted;
     this.completedItem.emit(this.item);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter,Input, Output } from '@angular/core';
 import {Item} from '../item.model';
 
 @Component({
@@ -10,14 +10,14 @@ export class ToDoItemsComponent implements OnInit {
 
   constructor() { }
   @Input() toDoArray:Item[];
+  @Output() ItemsEmmiterFn1 = new EventEmitter<object>();
   ngOnInit() {
   
   }
   handleComplete (event) {
-    let index = this.toDoArray.findIndex(a => a.id === event.id);
-    console.log("in ToDoItemsComponent Component")
-    console.log(index);
-    this.toDoArray[index] = event;    
+    // let index = this.toDoArray.findIndex(a => a.id === event.id);
+    // this.toDoArray[index] = event;
+    this.ItemsEmmiterFn1.emit(event);    
   }
 
 }

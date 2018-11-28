@@ -1,5 +1,5 @@
 <div class="container">
   <app-header></app-header>
-  <app-add-item [toDoArray]="toDOList" [remainingItems] ="RI"></app-add-item>
-  <app-to-do-names [toDoArray]="toDOList"></app-to-do-names>
+  <app-add-item [toDoArray]="toDOList" [remainingItems] ="RI" (AddNewItemFn1)="AddToItemArray($event)"></app-add-item>
+  <app-to-do-names [toDoArray]="toDOList" (ItemsEmmiterFn1)="updateItemArray($event)"></app-to-do-names>
 </div>
