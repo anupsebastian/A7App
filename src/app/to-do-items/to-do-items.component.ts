@@ -15,6 +15,7 @@ export class ToDoItemsComponent implements OnInit {
   }
   handleComplete (event) {
     let index = this.toDoArray.findIndex(a => a.id === event.id);
+    console.log("in ToDoItemsComponent Component")
     console.log(index);
     this.toDoArray[index] = event;    
   }

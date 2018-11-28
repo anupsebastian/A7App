@@ -14,7 +14,7 @@ export class ToDoItemComponent implements OnInit {
 
   onClick(event: Event) {
     console.log(" to Do Item compenent onClick functions");
-    this.item.completed = !this.item.completed;
+    this.item.isCompleted = !this.item.isCompleted;
     this.completedItem.emit(this.item);
   }
 }

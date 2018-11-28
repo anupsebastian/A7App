@@ -26,6 +26,11 @@ export class AddItemComponent implements OnInit, OnChanges {
     this.itemCount += 1;
     let newItem = new Item(this.itemCount, this.taskName, false);
     this.toDoArray.push(newItem);
-    console.log(this.toDoArray);
+    const newArray=this.toDoArray.filter((item) => {
+        console.log(item);
+        return item.isCompleted==true;
+    })
+    console.log(newArray);
+
   }
 }
