@@ -13,7 +13,9 @@ export class ToDoItemComponent implements OnInit {
   ngOnInit() {}
 
   onClick() {
+    // Mistake was here. You created new property here 'this.item.completed'
     this.item.isCompleted = !this.item.isCompleted;
+
     // this.completedItem.emit(this.item);
   }
 }
